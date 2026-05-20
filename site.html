@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estilização e Layout Moderno</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #09090b, #1e1b4b, #3b0764);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #c084fc;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #c084fc;
+    }
+
+    .slide {
+      min-height: 100vh;
+      width: 90%;
+      margin: 120px auto 60px auto;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 35px;
+      padding: 60px;
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      animation: fade 1s ease;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: rgba(168,85,247,0.25);
+      border-radius: 50%;
+      filter: blur(80px);
+      top: -100px;
+      right: -100px;
+    }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(217,70,239,0.2);
+      border-radius: 50%;
+      filter: blur(80px);
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide-number {
+      color: #d8b4fe;
+      letter-spacing: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 60px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    h3 {
+      color: #d4d4d8;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #e4e4e7;
+    }
+
+    ul {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      list-style: none;
+    }
+
+    ul li {
+      background: rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+      font-size: 18px;
+    }
+
+    ul li:hover {
+      transform: scale(1.03);
+      border-color: #c084fc;
+    }
+
+    pre {
+      background: rgba(0,0,0,0.5);
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 30px;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    code {
+      color: #4ade80;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      color: #d4d4d8;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 80px;
+    }
+
+    .nomes {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #c084fc;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(168,85,247,0.4);
+      }
+
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px rgba(236,72,153,0.6);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(168,85,247,0.4);
+      }
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .slide {
+        padding: 35px;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div style="position: fixed; width: 500px; height: 500px; background: rgba(168,85,247,0.12); border-radius: 50%; filter: blur(120px); top: -200px; left: -200px; z-index: -1;"></div>
+
+  <div style="position: fixed; width: 400px; height: 400px; background: rgba(236,72,153,0.12); border-radius: 50%; filter: blur(120px); bottom: -150px; right: -150px; z-index: -1;"></div>
+
+  <header>
+    <h1>Estilização & Layout</h1>
+
+    <nav>
+      <a href="#slide1">Introdução</a>
+      <a href="#slide5">Frameworks</a>
+      <a href="#slide8">React</a>
+    </nav>
+  </header>
+
+  <section class="slide" id="slide1">
+    <div class="content">
+      <span class="slide-number">Slide 01</span>
+      <h2>Estilização e Layout Moderno</h2>
+      <h3>Introdução ao Front-End moderno</h3>
+
+      <p>
+        No desenvolvimento front-end, a estilização e o layout moderno focam em performance, responsividade e experiência do usuário (UX). O objetivo é criar interfaces limpas, rápidas e adaptáveis a qualquer tamanho de tela através de código limpo e semântico.Estruturação de LayoutCSS Grid: Ideal para layouts bidimensionais complexos, controlando linhas e colunas simultaneamente.Flexbox: Perfeito para alinhar elementos em uma única dimensão (linhas ou colunas) e distribuir espaço.Mobile-First: Metodologia de desenvolvimento que inicia o código pelas telas menores e expande via Media Queries.Subgrid: Recurso moderno do CSS Grid para alinhar subelementos complexos a uma malha principal.Tendências de Estilização (UI)Glassmorphism: Efeito de vidro fosco translúcido gerado com a propriedade backdrop-filter: blur().Dark Mode Nativo: Suporte automático a temas claro/escuro via media query prefers-color-scheme.Bento Grid: Organização do conteúdo em blocos ou "caixas" de tamanhos variados, imitando uma marmita bento japonesa.Microinterações: Animações sutis disparadas por ações do usuário para tornar a interface mais viva.Ferramental e EcossistemaTailwind CSS: Framework utilitário que acelera a estilização diretamente nas classes do HTML.CSS Modules / CSS-in-JS: Técnicas para escopar o estilo por componente, evitando conflitos de classes no código global.Variáveis CSS (Custom Properties): Uso de propriedades nativas para criação de temas dinâmicos e manutenção fácil.Design Systems: Criação de bibliotecas de componentes reutilizáveis para manter a consistência visual do produto.
+      </p>
+    </div>
+  </section>
+
+  <section class="slide" id="slide2">
+    <div class="content">
+      <span class="slide-number">Slide 02</span>
+      <h2>CSS Avançado</h2>
+      <h3>Recursos modernos de estilização</h3>
+
+      <p>
+        CSS avançado inclui animações, gradientes, variáveis CSS,
+        pseudo-elementos, responsividade e efeitos modernos como blur e glassmorphism.
+      </p>
+
+      <pre><code>:root {
+  --cor-primaria: #8b5cf6;
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}</code></pre>
+    </div>
+  </section>
+
+  <section class="slide" id="slide3">
+    <div class="content">
+      <span class="slide-number">Slide 03</span>
+      <h2>Flexbox e Grid</h2>
+      <h3>Layouts modernos e responsivos</h3>
+
+      <p>
+        Flexbox e Grid são ferramentas fundamentais para criar layouts organizados,
+        alinhados e adaptáveis para qualquer dispositivo.
+      </p>
+
+      <ul>
+        <li>Layouts profissionais</li>
+        <li>Responsividade moderna</li>
+        <li>Melhor alinhamento</li>
+        <li>Organização eficiente</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide" id="slide4">
+    <div class="content">
+      <span class="slide-number">Slide 04</span>
+      <h2>Pré-processadores</h2>
+      <h3>SCSS, SASS e LESS</h3>
+
+      <p>
+        Pré-processadores facilitam a escrita do CSS com recursos como variáveis,
+        nesting e reutilização de código.
+      </p>
+
+      <pre><code>$primary: #9333ea;
+
+.button {
+  background: $primary;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <section class="slide" id="slide5">
+    <div class="content">
+      <span class="slide-number">Slide 05</span>
+      <h2>Frameworks CSS</h2>
+      <h3>Ferramentas modernas</h3>
+
+      <p>
+        Frameworks CSS aceleram o desenvolvimento e oferecem componentes reutilizáveis.
+      </p>
+
+      <ul>
+        <li>Tailwind CSS</li>
+        <li>Bootstrap</li>
+        <li>Material UI</li>
+        <li>ShadCN UI</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide" id="slide6">
+    <div class="content">
+      <span class="slide-number">Slide 06</span>
+      <h2>Design Responsivo</h2>
+      <h3>Experiência em qualquer tela</h3>
+
+      <p>
+        O design responsivo adapta os elementos automaticamente para celulares,
+        tablets e computadores.
+      </p>
+
+      <pre><code>@media(max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <section class="slide" id="slide7">
+    <div class="content">
+      <span class="slide-number">Slide 07</span>
+      <h2>Design Expansivo</h2>
+      <h3>Interfaces modernas e imersivas</h3>
+
+      <p>
+        O design expansivo utiliza animações, efeitos visuais, gradientes e espaços amplos
+        para criar interfaces mais modernas.
+      </p>
+
+      <ul>
+        <li>Glassmorphism</li>
+        <li>Neumorphism</li>
+        <li>Microinterações</li>
+        <li>Animações suaves</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide" id="slide8">
+    <div class="content">
+      <span class="slide-number">Slide 08</span>
+      <h2>React Avançado</h2>
+      <h3>Performance e componentização</h3>
+
+      <p>
+        React avançado envolve hooks, Context API, otimização de performance,
+        componentização e gerenciamento de estado.
+      </p>
+
+      <pre><code>const [tema, setTema] = useState('dark');
+
+useEffect(() => {
+  document.body.className = tema;
+}, [tema]);</code></pre>
+    </div>
+  </section>
+
+  <section class="slide" id="slide9">
+    <div class="content">
+      <span class="slide-number">Slide 09</span>
+      <h2>Boas Práticas</h2>
+      <h3>Projetos organizados e escaláveis</h3>
+
+      <ul>
+        <li>Código limpo</li>
+        <li>Componentes reutilizáveis</li>
+        <li>Acessibilidade</li>
+        <li>Performance</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide" id="slide10">
+    <div class="content">
+      <span class="slide-number">Slide 10</span>
+      <h2>Conclusão</h2>
+      <h3>O futuro do desenvolvimento Front-End</h3>
+
+      <p>
+        Dominar CSS moderno, frameworks e React avançado é essencial
+        para criar aplicações profissionais, rápidas e responsivas.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Trabalho de Front-End</h2>
+
+    <div style="margin: 30px auto; width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg,#a855f7,#ec4899); display:flex; align-items:center; justify-content:center; box-shadow: 0 0 40px rgba(168,85,247,0.5); animation: pulse 3s infinite;">
+      <span style="font-size: 70px;">⚔️</span>
+    </div>
+
+    <h3 style="font-size: 30px; color: #c084fc; margin-bottom: 15px;">
+      Desenvolvido por Os 4 Mosqueteiros
+    </h3>
+
+    <p style="max-width: 700px; margin: auto; line-height: 1.8; color: #d4d4d8;">
+      Empresa fictícia especializada em desenvolvimento Front-End,
+      interfaces modernas, experiências responsivas e design expansivo.
+    </p>
+
+    <div class="nomes">
+      <p>Matheus Eduardo</p>
+      <p>Sergio Gabriel</p>
+      <p>Carlos Henrique</p>
+      <p>Bruno Siqueira</p>
+      <p>3º DS</p>
+    </div>
+  </footer>
+
+</body>
+</html>
