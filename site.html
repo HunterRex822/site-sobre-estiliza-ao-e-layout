@@ -384,20 +384,18 @@ Além disso, ferramentas como Tailwind CSS, CSS Modules e os Design Systems torn
       <h3> React Avançado: Engenharia Pura e Alta Performance </h3>
         <p>
           
-No básico, a gente só faz o código funcionar. No avançado, a gente domina os segredos mais profundos de como ele opera por baixo dos panos. É aqui que o código deixa de ser amador e se torna uma obra de arte ultra rápida e irresistível para o mercado.
+React avançado vai além de fazer a aplicação funcionar:
+  o foco é criar sistemas rápidos, organizados e escaláveis.
+Os principais conceitos são:
+          
+React Fiber: melhora a performance dividindo a renderização em etapas.
+          
+Memoização: evita renderizações desnecessárias com React.memo, useMemo e useCallback.
+          
+Design Patterns: uso de padrões como Custom Hooks e Compound Components para deixar o código mais limpo, reutilizável e fácil de manter.
 
- Os 3 Pilares Sedutores (Para dominar a apresentação)
-O Motor Proibido (React Fiber): O React não joga as coisas na tela de qualquer jeito. Ele tem um algoritmo focado em performance chamado Fiber. Ele divide o trabalho em duas fases: calcula tudo em segredo no segundo plano (Fase de Render) e só entrega o resultado final quando está tudo pronto e perfeito (Fase de Commit). Isso mantém a interface deliciosamente fluida e sem travamentos.
 
-A Tríade do Prazer Visual (Memoização): Em projetos grandes, qualquer clique bobo pode fazer a aplicação inteira tremer e se re-renderizar à toa. Para blindar e excitar a performance, usamos o controle de memória do React:
 
-React.memo para travar e proteger componentes visuais.
-
-useMemo para guardar cálculos pesados e complexos.
-
-useCallback para manter funções fixas na memória, sem desperdício.
-
-Arquitetura Elegante e Envolvente (Design Patterns): Esqueça aqueles componentes gigantes e bagunçados. Nós isolamos a lógica mais pesada em Custom Hooks (deixando o layout limpo, focado só no visual) e usamos padrões avançados como Compound Components (componentes que se encaixam perfeitamente, como um <Menu> que se divide em <Menu.Botao> e <Menu.Lista>), deixando o código absurdamente limpo e irresistível de dar manutenção
          </p>
 
       <pre><code>const [tema, setTema] = useState('dark');
